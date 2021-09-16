@@ -1,0 +1,28 @@
+{
+  "name": "airline-ticket-sale",
+  "version": "1.0.0",
+  "description": "airline ticket e-commerce api",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "dotenv nodemon src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R-drg/airline-ticket-sale.git"
+  },
+  "author": "r-drg",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/R-drg/airline-ticket-sale/issues"
+  },
+  "homepage": "https://github.com/R-drg/airline-ticket-sale#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "dotenv-cli": "^4.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
