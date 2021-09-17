@@ -19,7 +19,7 @@ CREATE TABLE session_tokens (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     token VARCHAR(255) NOT NULL,
     user_id UUID NOT NULL,
-    created_date TIMESTAMPTZ
+    created_date TIMESTAMPTZ,
     expires INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -36,8 +36,8 @@ CREATE TABLE airports(
 -- airlines
 CREATE TABLE airlines(
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name VARCHAR(255) NOT NULL,
-)
+    name VARCHAR(255) NOT NULL
+);
 
 -- flights table
 CREATE TABLE flights(
@@ -50,9 +50,9 @@ CREATE TABLE flights(
     price INTEGER,
     airline_id UUID,
     max_passangers INTEGER,
-    FOREIGN KEY departure_location REFERENCES airports(id),
-    FOREIGN KEY arrival_location REFERENCES airports(id),
-    FOREIGN KEY arline_id REFERENCES airlines(id)
+    FOREIGN KEY (departure_location) REFERENCES airports(id),
+    FOREIGN KEY (arrival_location) REFERENCES airports(id),
+    FOREIGN KEY (airline_id) REFERENCES airlines(id)
 );
 
 -- user flights relation table
@@ -61,8 +61,8 @@ CREATE TABLE tickets (
     user_id UUID,
     flight_id UUID,
     seat VARCHAR(4),
-    FOREIGN KEY flight_id REFERENCES flights(id),
-    FOREIGN KEY user_id REFERENCES users(id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
 
 
