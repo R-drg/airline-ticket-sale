@@ -10,6 +10,6 @@ UserController.post(
   "/",
   expressAsyncHandler(async (req, res) => {
     const response = await createUser(req.body);
-    return res.status(201).send(response);
+    return res.status(201).send(response.rows[0]);
   })
 );
