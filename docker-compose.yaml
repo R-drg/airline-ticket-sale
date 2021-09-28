@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./migrations/InitialDatabase.sql:/docker-entrypoint-initdb.d/InitialDatabase.sql
+      - ./migrations:/docker-entrypoint-initdb.d
 
 volumes:
   pgdata:

@@ -29,8 +29,7 @@ CREATE TABLE airports(
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(255) NOT NULL,
     city VARCHAR(255) NOT NULL,
-    country VARCHAR(255) NOT NULL,
-    address VARCHAR(255) NOT NULL
+    country VARCHAR(255) NOT NULL
 );
 
 -- airlines
@@ -43,13 +42,13 @@ CREATE TABLE airlines(
 CREATE TABLE flights(
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     code VARCHAR(50),
-    departure_time TIMESTAMPTZ,
-    arrival_time TIMESTAMPTZ,
+    departure_time TIME,
+    arrival_time TIME,
     departure_location UUID,
     arrival_location UUID,
     price INTEGER,
     airline_id UUID,
-    max_passangers INTEGER,
+    max_passangers NUMERIC(10,2),
     FOREIGN KEY (departure_location) REFERENCES airports(id),
     FOREIGN KEY (arrival_location) REFERENCES airports(id),
     FOREIGN KEY (airline_id) REFERENCES airlines(id)
@@ -64,6 +63,11 @@ CREATE TABLE tickets (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
+
+--unique flight code 
+ALTER TABLE flights
+ADD CONSTRAINT flight_code_unique UNIQUE (code);
+
 
 
 
