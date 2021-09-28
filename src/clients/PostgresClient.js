@@ -10,7 +10,6 @@ export const queryDB = async (queryString) => {
     client.connect();
     const result = await client.query(queryString);
     client.end();
-    client.end();
     return result;
   } catch (err) {
     client.end();
