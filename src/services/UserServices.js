@@ -37,6 +37,18 @@ export const getUserById = async (userId) => {
   }
 };
 
+export const getUserByEmail = async (email) => {
+  try {
+    const response = await queryDB(
+      `SELECT * FROM users where email = '${email}'`
+    );
+    return response.rows[0];
+  } catch (err) {
+    throw err;
+  }
+};
+
+
 export const deleteUser = async (userId) => {
   try {
     const response = await queryDB(`DELETE FROM users where id = '${userId}'`);

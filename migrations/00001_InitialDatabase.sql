@@ -18,10 +18,8 @@ ADD CONSTRAINT user_email_unique UNIQUE (email);
 CREATE TABLE session_tokens (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     token VARCHAR(255) NOT NULL,
-    user_id UUID NOT NULL,
     created_date TIMESTAMPTZ,
-    expires INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    expires TIMESTAMPTZ
 );
 
 -- airports table

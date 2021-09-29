@@ -8,7 +8,6 @@ export const validate = (schema, input) => {
 };
 
 export const joiToApiError = (err) => {
-  console.log(err.details);
   var errMsg = {};
   err.details.map((e) => {
     const msg = {

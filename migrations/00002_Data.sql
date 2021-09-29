@@ -23,3 +23,6 @@ VALUES ('XYZ123','10:00','12:00','98119b9b-f77c-4544-b440-daf3b51eef79','3674e4d
 
 INSERT INTO flights(code,departure_time,arrival_time,departure_location,arrival_location,price,airline_id,max_passangers) 
 VALUES ('ABC123','14:00','16:00','98119b9b-f77c-4544-b440-daf3b51eef79','3674e4d6-d8da-4b27-a00e-334746479ea9',1000.00,'4218c160-d1df-470c-a80a-9229b18a8650',150);
+
+INSERT INTO flights(code,departure_time,arrival_time,departure_location,arrival_location,price,airline_id,max_passangers) 
+VALUES ('JULIO1','10:00','20:00','3674e4d6-d8da-4b27-a00e-334746479ea9','3d08c0c8-a50b-4343-a55a-283a478c2865',15000.00,'d25d1a5b-a18b-46c2-b02c-0747aef9b72e',2);
