@@ -11,13 +11,11 @@ export const login = async (req) => {
   const request = validateLoginRequest(req);
   try {
     const user = await getUserByEmail(request.email);
-    console.log(user);
     if (!user) {
       throw new UnauthorizedError("Email or password incorrect");
     }
     if (md5(request.password) === user.password) {
       var token = jwt.sign({ user_id: user.id }, authConfig);
-      console.log(token);
       await queryDB(
         `INSERT INTO session_tokens(token,created_date,expires) VALUES ('${token}', now(), now() + (20 * interval '1 minute'))`
       );
