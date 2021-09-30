@@ -58,6 +58,7 @@ CREATE TABLE tickets (
     user_id UUID,
     flight_id UUID,
     seat VARCHAR(4),
+    created_date TIMESTAMPTZ NOT NULL DEFAULT now(),
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
@@ -65,6 +66,10 @@ CREATE TABLE tickets (
 --unique flight code 
 ALTER TABLE flights
 ADD CONSTRAINT flight_code_unique UNIQUE (code);
+
+-- unique seat for flight
+ALTER TABLE tickets
+ADD CONSTRAINT tickets_seat_flight_id_unique UNIQUE (flight_id,seat);
 
 
 

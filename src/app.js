@@ -4,6 +4,8 @@ import { UserController, USER_CONTROLLER_BASE_URL } from './controllers/UserCont
 import { ApiError, NotFoundError } from './error/Error.js';
 import { AirportsController, AIRPORTS_CONTROLLER_BASE_URL } from './controllers/AirportsController.js';
 import { AuthController, AUTH_CONTROLLER_BASE_URL } from './controllers/AuthController.js';
+import { TicketsController, TICKETS_CONTROLLER_BASE_URL } from './controllers/TicketsController.js';
+import { FlightsController, FLIGHTS_CONTROLLER_BASE_URL } from './controllers/FlightsController.js';
 
 const PORT = getRequiredVariable('SERVER_PORT');
 const app = express();
@@ -15,6 +17,8 @@ app.use(express.json());
 router.use(USER_CONTROLLER_BASE_URL, UserController);
 router.use(AUTH_CONTROLLER_BASE_URL, AuthController);
 router.use(AIRPORTS_CONTROLLER_BASE_URL, AirportsController);
+router.use(TICKETS_CONTROLLER_BASE_URL, TicketsController);
+router.use(FLIGHTS_CONTROLLER_BASE_URL, FlightsController);
 
 
 app.use("/api/v1", router);
